@@ -1,0 +1,12 @@
+<!-- <p>exemplo-ng-content works!</p> -->
+<div class="card border-dark mb-3" style="max-width: 18rem;">
+    <div class="card-header">
+        <ng-content select=".titulo"></ng-content>
+    </div>
+    <div class="card-body text-dark">
+      <h5 class="card-title">Dark card title</h5>
+      <p class="card-text">
+          <ng-content select=".corpo"></ng-content>
+      </p>
+    </div>
+  </div>

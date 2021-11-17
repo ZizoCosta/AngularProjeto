@@ -1,0 +1,10 @@
+<p>diretiva-ng-class works!</p>
+<h1>
+  <!-- class="alert alert-primary" -->
+  <div [ngClass]="'alert alert-primary'" role="alert">
+    A simple primary alert—check it out!
+  </div>
+</h1>
+<button type="button" [ngClass]="'btn btn-primary'" (click)="onclickContador()">
+  Notifications <span [ngClass]="'badge bg-secondary'">{{ vcontador }}</span>
+</button>

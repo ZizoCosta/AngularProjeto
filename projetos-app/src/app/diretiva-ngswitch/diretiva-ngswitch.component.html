@@ -1,0 +1,16 @@
+ <p>diretiva ngSwitch e *ngswitchCase</p>
+<div [class.active]="aba === 'Home'" (click)="aba = 'Home'">
+Home
+</div>
+<div [class.active]="aba === 'Lista'" (click)="aba = 'Lista'">
+  Lista
+  </div>
+<div [class.active]="aba === 'Ajuda'"  (click)="aba = 'Ajuda'">
+Ajuda
+</div>
+<br>
+<div [ngSwitch]="aba">
+  <p *ngSwitchCase="'Lista'">Modo Lista ativado</p>
+  <p *ngSwitchCase="'Ajuda'">Modo Ajuda ativado</p>
+  <p *ngSwitchDefault>Bem-vindo HOME</p>
+</div>

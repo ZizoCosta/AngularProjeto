@@ -1,0 +1,53 @@
+<div class="container">
+    <form class="row g-3 was-validated form-horizontal" [formGroup]="userform" (ngSubmit)="onSubmit()">
+      <h2>Formulario</h2>
+      <div class="col-md-12">
+        <div class="form-group"
+        [ngClass]="aplicaCssErro('nome')">
+          <label for="nome" class="control-label">Nome:</label>
+          <input id="nome" type="text" class="form-control" formControlName="nome" placeholder="Nome">
+          <!-- <div *ngIf="getControl.nome.touched && getControl.nome.invalid" class="alert alert-danger invalid-feedback" role="alert">
+            <div *ngIf="getControl.nome.errors.required">Campo Nome deve ser preenchido, obrigatório</div>
+            <div *ngIf="getControl.nome.errors?.minlength">Minimum 4 character are required.</div>
+          </div>-->
+          <div *ngIf="getControl.nome.touched && !getControl.nome.valid" class="alert alert-danger valid-feedback" role="alert">
+            <div *ngIf="getControl.nome.errors.required">Campo Nome deve ser preenchido, obrigatório</div>
+            <!-- <div *ngIf="getControl.nome.errors.minlength(4)">Minimum 4 character are required.</div> -->
+          </div>
+<!--         <app-campo-control-erro
+          [mostrarErro]="!userform.get('nome').valid && userform.get('nome').touched"
+          msgErro="Campo Nome deve ser preenchido, obrigatório">
+        </app-campo-control-erro>  -->
+        </div>
+
+      </div>
+  <!--       [class.has-error]="!email.valid && email.touched"
+        [class.has-feedback]="!email.valid && email.touched" -->
+      <div class="col-mb-12">
+        <div class="form-group"
+        [ngClass]="aplicaCssErro('email')">
+          <label for="email" class="control-label">E-mail:</label>
+          <input id="email" type="text" class="form-control" formControlName="email" placeholder="nome@email.com.br">
+<!--           <div *ngIf="getControl.email.touched && getControl.email.invalid" class="text-danger">
+            <div *ngIf="getControl.email.errors.required">Email is required.</div>
+            <div *ngIf="getControl.email.errors.email">Email seems invalid.</div>
+          </div> -->
+          <div *ngIf="getControl.email.touched && !getControl.email.valid" class="alert alert-danger valid-feedback" role="alert">
+            <div *ngIf="getControl.email.errors.required">Campo E-mail deve ser preenchido, obrigatório</div>
+            <!-- <div *ngIf="getControl.nome.errors.minlength(4)">Minimum 4 character are required.</div> -->
+          </div>
+          <app-campo-control-erro
+          [mostrarErro]="verificaValidtouched('email')"
+          msgErro="E-mail invalido!">
+        </app-campo-control-erro>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn btn-danger" (click)="resetar()">Limpar</button>
+      </div>
+      <app-form-debug [form]="userform"></app-form-debug>
+
+    </form>
+  </div>
